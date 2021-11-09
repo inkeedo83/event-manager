@@ -7,6 +7,7 @@ export class UpdateLocationDto implements UpdateLocationInterface {
   @IsOptional()
   @IsString()
   location: string;
+
   @ApiProperty({ type: String, default: 'description' })
   @IsOptional()
   @IsString()

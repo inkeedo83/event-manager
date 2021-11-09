@@ -6,9 +6,11 @@ export class CreateUserDto implements CreateUserInterface {
   @ApiProperty({ type: String, default: 'first name' })
   @IsString()
   firstName: string;
+
   @ApiProperty({ type: String, default: 'last name' })
   @IsString()
   lastName: string;
+
   @ApiProperty({ type: String, default: 'user@mail.ru' })
   @IsEmail()
   email: string;

@@ -19,11 +19,6 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  async createOne(@Body() createUserDto: CreateUserDto): Promise<UserEntity> {
-    return await this.usersService.create(createUserDto);
-  }
-
   @Get()
   async getAll(): Promise<UserEntity[]> {
     return await this.usersService.getAll();
@@ -38,8 +33,13 @@ export class UsersController {
     return user;
   }
 
+  @Post()
+  async create(@Body() createUserDto: CreateUserDto): Promise<UserEntity> {
+    return await this.usersService.create(createUserDto);
+  }
+
   @Patch(':id')
-  async updateOne(
+  async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<UpdateResult> {
@@ -51,9 +51,7 @@ export class UsersController {
   }
 
   @Delete(':id')
-  async removeOne(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<DeleteResult> {
+  async delete(@Param('id', ParseIntPipe) id: number): Promise<DeleteResult> {
     const user = await this.usersService.getOne(id);
 
     if (!user) throw new globalNotFoundException(id);

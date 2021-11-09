@@ -19,13 +19,6 @@ import { UpdateLocationDto } from './dto/update-location.dto';
 export class LocationsController {
   constructor(private readonly locationsService: LocationsService) {}
 
-  @Post()
-  async createOne(
-    @Body() createLocationDto: CreateLocationDto,
-  ): Promise<LocationEntity> {
-    return await this.locationsService.create(createLocationDto);
-  }
-
   @Get()
   async getAll(): Promise<LocationEntity[]> {
     return await this.locationsService.getAll();
@@ -40,8 +33,15 @@ export class LocationsController {
     return location;
   }
 
+  @Post()
+  async create(
+    @Body() createLocationDto: CreateLocationDto,
+  ): Promise<LocationEntity> {
+    return await this.locationsService.create(createLocationDto);
+  }
+
   @Patch(':id')
-  async updateOne(
+  async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateLocationDto: UpdateLocationDto,
   ): Promise<UpdateResult> {

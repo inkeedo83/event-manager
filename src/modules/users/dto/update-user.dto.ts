@@ -7,14 +7,17 @@ export class UpdateUserDto implements UpdateUserInterface {
   @IsOptional()
   @IsString()
   firstName: string;
+
   @ApiProperty({ type: String, default: 'last name' })
   @IsOptional()
   @IsString()
   lastName: string;
+
   @ApiProperty({ type: String, default: 'user@mail.ru' })
   @IsOptional()
   @IsEmail()
   email: string;
+
   @ApiProperty({ type: Boolean, default: true })
   @IsOptional()
   @IsBoolean()

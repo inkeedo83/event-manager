@@ -7,9 +7,11 @@ export class UpdateEventDto implements UpdateEventInterface {
   @ApiProperty({ type: String, default: 'title' })
   @IsString()
   title: string;
+
   @ApiProperty({ type: String, default: 'description' })
   @IsString()
   description: string;
+
   @ApiProperty({
     type: LocationEntity,
     default: 1,

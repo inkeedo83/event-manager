@@ -8,25 +8,12 @@ export interface UserInterface {
   updated_at: Date;
 }
 
-// export interface CreateUserInterface
-//   extends Pick<UserInterface, 'firstName' | 'lastName' | 'email'> {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-// }
-
 export interface CreateUserInterface extends Partial<UserInterface> {
   firstName: string;
   lastName: string;
   email: string;
 }
 
-// export interface UpdateUserInterface
-//   extends Pick<UserInterface, 'firstName' | 'lastName' | 'email'> {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-// }
 export interface UpdateUserInterface extends Partial<UserInterface> {
   firstName: string;
   lastName: string;

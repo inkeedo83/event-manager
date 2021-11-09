@@ -12,6 +12,7 @@ export class LocationEntity
   @ApiProperty({ type: String, default: 'address' })
   @Column()
   location: string;
+
   @ApiProperty({ type: String, default: 'description' })
   @Column()
   description: string;

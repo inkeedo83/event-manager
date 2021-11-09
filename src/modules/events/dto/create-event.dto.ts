@@ -20,6 +20,7 @@ export class CreateEventDto implements CreateEventInterface {
   @IsOptional()
   @IsNumber()
   location: LocationEntity;
+
   @ApiProperty({
     type: Date,
     default: new Date(),
@@ -27,6 +28,7 @@ export class CreateEventDto implements CreateEventInterface {
   })
   @IsDateString()
   startTime: Date;
+
   @ApiProperty({
     type: Date,
     default: new Date(),
