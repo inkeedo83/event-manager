@@ -2,18 +2,15 @@
 /dist
 /node_modules
 
+/.git
+
 # Logs
 logs
 *.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
 
-.env
 # OS
 .DS_Store
+/.env
 
 # Tests
 /coverage
@@ -21,6 +18,7 @@ lerna-debug.log*
 
 # IDEs and editors
 /.idea
+.idea
 .project
 .classpath
 .c9/
