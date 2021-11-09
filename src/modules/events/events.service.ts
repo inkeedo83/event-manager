@@ -1,14 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import {
-  IsNull,
-  LessThanOrEqual,
-  MoreThan,
-  MoreThanOrEqual,
-  Not,
-  Repository,
-  UpdateResult,
-} from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import { BaseService } from '../../common/base/base.service';
 import { LocationEntity } from '../locations/entities/location.entity';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -47,8 +39,6 @@ export class EventsService extends BaseService<EventEntity> {
     return await this.eventRepository.findOne(id, { relations: ['location'] });
   }
   async getAll(): Promise<EventEntity[]> {
-    return await this.eventRepository.find({
-      relations: ['location'],
-    });
+    return await this.eventRepository.find({ relations: ['location'] });
   }
 }
